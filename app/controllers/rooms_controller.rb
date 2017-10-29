@@ -1,4 +1,4 @@
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
 
 before_action :set_room, only: [:show, :edit, :update]
 before_action :authenticate_user!, except: [:show]
@@ -14,7 +14,7 @@ before_action :authenticate_user!, except: [:show]
     def create
         @room = current_user.rooms.build(room_params)
         if @room.save
-            redirect_to @room, notice: "Votre annonce a été ajoutée avec succès"
+            redirect_to @room, notice:"Votre annonce a été ajoutée avec succès"
         else
             render :new
         end
@@ -28,7 +28,7 @@ before_action :authenticate_user!, except: [:show]
     
     def update
         if @room.update(room_params)
-            redirect_to @room, notice: "Modification enregistrée..."
+            redirect_to @room, notice:"Modification enregistrée..."
         else
             render :edit
         end
@@ -41,8 +41,8 @@ private
     end
     
     def room_params
-        params.require(:room).permit(:home_type, :room_type, :accomodate, :bed_room,
-        :listing_name, :summary, :adress, :is_wifi, :is_tv, :is_closet, :is_shampoo, 
+        params.require(:room).permit(:home_type, :room_type, :accomodate, :bed_room, :bath_room,
+        :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, :is_shampoo, 
         :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :active)
     end
 
