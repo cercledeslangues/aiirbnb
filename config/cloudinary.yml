@@ -1,6 +1,6 @@
 production:
 
-cloud_name:"aiirbnb"
+cloud_name: "aiirbnb"
 
 api_key:<%= ENV["CLOUDINARY_API_KEY"] %>
 
