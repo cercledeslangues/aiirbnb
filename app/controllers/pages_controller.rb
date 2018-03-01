@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
     
     def home
+        @rooms = Room.order("RANDOM()").limit(3)
     end
 
     def search
@@ -32,11 +33,8 @@ class PagesController < ApplicationController
                 
                 if not_available.length > 0
                     @arrRooms.delete(room)
-                
+                end
             end
         end
-            
     end
-
-
 end
